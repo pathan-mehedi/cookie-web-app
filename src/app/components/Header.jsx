@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import Cookies from 'js-cookie';
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -16,7 +17,12 @@ const Header = () => {
     setIsDarkTheme(prevTheme => !prevTheme);
   };
 
-  const themeButtonText = isDarkTheme ? "Light" : "Dark";
+  const handleSetCookie = () => {
+    Cookies.set('theme', 'dark');
+    setIsDarkTheme(true); 
+  };
+
+  const themeButtonText = isDarkTheme ? 'Light' : 'Dark';
 
   return (
     <header className={`header ${isDarkTheme ? 'dark' : 'light'}`}>
@@ -46,21 +52,26 @@ const Header = () => {
           }`}
         >
           <li>
-            <Link href="/" className="menu_link">Home</Link>
+            <Link href="/" className="menu_link">
+              Home
+            </Link>
           </li>
           <li>
-            <Link href="/blog" className="menu_link">Blog</Link>
+            <Link href="/cookie" className="menu_link">
+              Cookie
+            </Link>
           </li>
           <li>
-            <Link href="/about" className="menu_link">About Us</Link>
+            <Link href="/about" className="menu_link">
+              About Us
+            </Link>
           </li>
           <li>
-            <Link href="/contact" className="menu_link">Contact</Link>
+            <Link href="/contact" className="menu_link">
+              Contact
+            </Link>
           </li>
         </ul>
-        <button onClick={toggleTheme} className="themeToggleBtn">
-          {themeButtonText}
-        </button>
       </nav>
     </header>
   );

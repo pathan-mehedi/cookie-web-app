@@ -5,18 +5,13 @@
   box-sizing: border-box;
 }
 
-/* Light theme */
-.light {
-  --bg-color: #f3f7fb;
-  --text-color: #000000;
-  --link-color: #000000;
-}
-
-/* Dark theme */
-.dark {
-  --bg-color: #4b4b4b;
-  --text-color: #ffffff;
-  --link-color: #6d9790;
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  max-width: 1140px;
+  flex-wrap: wrap;
 }
 
 /* HEADER CSS */
@@ -166,6 +161,10 @@
 }
 
 /* header css end */
+
+ul li {
+  list-style: none;
+}
 
 /* FOOTER CSS START */
 /* Base styles */

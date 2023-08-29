@@ -1,13 +1,8 @@
-import { NextRequest } from "next/server";
-import { NextResponse } from "next/server";
-import {headers} from "next/headers"
+import { cookies } from "next/headers";
 
+async function create(data) {
+    let response = NextResponse.next();
+    response.cookies.set("show-banner", "false");
 
-export async function POST(req, res) {
-
-    let {searchParams} =new URL(req.url);
-    let name = searchParams.get('name');
-    let city = searchParams.get('city');
-
-    return NextResponse.json({msg: name})
+    return response;
 }
