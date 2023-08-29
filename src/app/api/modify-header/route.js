@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-export async function modifyHeader(req) {
+export default async function handler(req) {
   const incomingHeaders = new Headers(req.headers);
   const token = incomingHeaders.get('Authorization');
   const newAuthorizationHeader = `Bearer ${token}`;
